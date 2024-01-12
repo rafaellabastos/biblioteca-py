@@ -31,14 +31,14 @@ else:
 # Cadastrar informações do livro
 def cadastrar():
     try:
-        print('-----CADASTRAR LIVRO-----')
+        print('\n-----CADASTRAR LIVRO-----')
 
         nome = input('Digite o nome do livro: ')
         secao = input('Digite a seção do livro: ')
         autor = input('Digite o autor do livro: ')
         idade = int(input('Digite a idade mínima: '))
 
-        cadastro = f"""INSERT INTO biblioteca (NOME_LIVRO, SECAO_LIVRO, AUTOR_LIVRO, IDADE) VALUES ('{nome}', '{secao}', '{autor}', {idade})"""
+        cadastro = f"""INSERT INTO biblioteca (NOME_LIVRO, SECAO_LIVRO, AUTOR_LIVRO, IDADE_MIN) VALUES ('{nome}', '{secao}', '{autor}', {idade})"""
 
         cursor.execute(cadastro)
         conn.commit()
@@ -56,7 +56,7 @@ def cadastrar():
 # Listar livros cadastrados
 def listar():
     try: 
-        print('-----LISTA DOS LIVROS-----')
+        print('\n-----LISTA DOS LIVROS-----')
 
         lista_dados = []
 
@@ -71,7 +71,7 @@ def listar():
         lista_dados = sorted(lista_dados)
 
         if len(lista_dados) == 0:   
-            print(f'Não há livros cadastrados')
+            print(f'\nNão há livros cadastrados')
         else: 
             for item in lista_dados:
                 print(item)
@@ -80,13 +80,13 @@ def listar():
         print('Erro na transação do BD')
     
     else:
-        input('Pressione ENTER para continuar')
+        input('\nPressione ENTER para continuar')
 
 
 # Alterar informações do livro
 def alterar():
     try:
-        print("-----ALTERAR LIVRO-----")
+        print("\n-----ALTERAR LIVRO-----")
 
         lista_dados = []
 
@@ -101,38 +101,38 @@ def alterar():
             lista_dados.append(dt)
 
         if len(lista_dados) == 0:
-            print('Não há um livro cadastro com esse ID')
+            print('\nNão há um livro cadastro com esse ID')
         else:
             novo_nome = input('Digite um novo nome: ')
             nova_secao = input('Digite uma nova seção: ')
-            novo_autor = input('Digite um novo autor')
+            novo_autor = input('Digite um novo autor: ')
             nova_idade = int(input('Digite uma nova idade mínima: '))
 
             alteracao = f"""UPDATE biblioteca SET
                             nome_livro = '{novo_nome}',
                             secao_livro = '{nova_secao}',
                             autor_livro = '{novo_autor}',
-                            idade = '{nova_idade}'
+                            idade_min = '{nova_idade}'
                             WHERE id = {livro_id}"""
             cursor.execute(alteracao)
             conn.commit()
 
-            print('Dados atualizados com sucesso')
+            print('\nDados atualizados com sucesso')
 
     except ValueError:
-        print('Digite um valor inteiro')
+        print('\nDigite um valor inteiro')
     
     except Exception:
-        print('Erro na transação com o BD')
+        print('\nErro na transação com o BD')
     
     else: 
-        input('Pressione ENTER para continuar')
+        input('\nPressione ENTER para continuar')
 
 
 # Excluir livro
 def excluir():
     try:
-        print('-----EXCLUIR LIVROS-----')
+        print('\n-----EXCLUIR LIVROS-----')
 
         lista_dados = []
 
@@ -147,7 +147,7 @@ def excluir():
             lista_dados.append(dt)
 
         if len(lista_dados) == 0:
-            print('Não há um livro cadastrado com esse ID')
+            print('\nNão há um livro cadastrado com esse ID')
         
         else:
             exclusao = f"""DELETE FROM biblioteca WHERE id = {livro_id}"""
@@ -155,14 +155,13 @@ def excluir():
             cursor.execute(exclusao)
             conn.commit()
 
+            print('\nLivro excluído com sucesso')
+
     except ValueError:
-        print('Digite um número inteiro para o id')
+        print('\nDigite um número inteiro para o id')
     
     except Exception:
-        print('Erro de transação no BD')
-
-    else:
-        print('\nLivro excluído com sucesso')
+        print('\nErro de transação no BD')
 
 
 # Menu de opções
