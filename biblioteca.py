@@ -163,3 +163,34 @@ def excluir():
 
     else:
         print('\nLivro excluído com sucesso')
+
+
+# Menu de opções
+while conexao:
+    print('\n1. Cadastrar livro'
+          '\n2. Listar livros'
+          '\n3. Excluir livro'
+          '\n4. Alterar livro'
+          '\n5. Sair')
+    
+    escolha = int(input('Selecione uma opção: '))
+
+    match escolha:
+        case 1:
+            cadastrar()
+
+        case 2: 
+            listar()
+
+        case 3:
+            excluir()
+
+        case 4:
+            alterar()
+
+        case 5:
+            print('Fim de programa!')
+            break
+        
+        case _:
+            print('Opção incorreta')
