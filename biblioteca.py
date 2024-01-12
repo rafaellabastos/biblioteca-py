@@ -84,7 +84,49 @@ def listar():
 
 
 # Alterar informações do livro
+def alterar():
+    try:
+        print("-----ALTERAR LIVRO-----")
 
+        lista_dados = []
+
+        livro_id = int(input('Escolha um ID: '))
+
+        consulta = f"""SELECT * FROM biblioteca WHERE id = {livro_id}"""
+
+        cursor.execute(consulta)
+        data = cursor.fetchall()
+
+        for dt in data:
+            lista_dados.append(dt)
+
+        if len(lista_dados) == 0:
+            print('Não há um livro cadastro com esse ID')
+        else:
+            novo_nome = input('Digite um novo nome: ')
+            nova_secao = input('Digite uma nova seção: ')
+            novo_autor = input('Digite um novo autor')
+            nova_idade = int(input('Digite uma nova idade mínima: '))
+
+            alteracao = f"""UPDATE biblioteca SET
+                            nome_livro = '{novo_nome}',
+                            secao_livro = '{nova_secao}',
+                            autor_livro = '{novo_autor}',
+                            idade = '{nova_idade}'
+                            WHERE id = {livro_id}"""
+            cursor.execute(alteracao)
+            conn.commit()
+
+            print('Dados atualizados com sucesso')
+
+    except ValueError:
+        print('Digite um valor inteiro')
+    
+    except Exception:
+        print('Erro na transação com o BD')
+    
+    else: 
+        input('Pressione ENTER para continuar')
 
 
 # Excluir livro
