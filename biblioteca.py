@@ -51,3 +51,73 @@ def cadastrar():
     
     else:
         print('\nDados gravados com sucesso')
+
+
+# Listar livros cadastrados
+def listar():
+    try: 
+        print('-----LISTA DOS LIVROS-----')
+
+        lista_dados = []
+
+        consulta = f"""SELECT * FROM biblioteca"""
+
+        cursor.execute(consulta)
+        data = cursor.fetchall()
+
+        for dt in data:     
+            lista_dados.append(dt) 
+
+        lista_dados = sorted(lista_dados)
+
+        if len(lista_dados) == 0:   
+            print(f'Não há livros cadastrados')
+        else: 
+            for item in lista_dados:
+                print(item)
+
+    except:
+        print('Erro na transação do BD')
+    
+    else:
+        input('Pressione ENTER para continuar')
+
+
+# Alterar informações do livro
+
+
+
+# Excluir livro
+def excluir():
+    try:
+        print('-----EXCLUIR LIVROS-----')
+
+        lista_dados = []
+
+        livro_id = int(input('Escolha um ID: '))
+
+        consulta = f"""SELECT * FROM biblioteca WHERE id = {livro_id}"""
+
+        cursor.execute(consulta)
+        data = cursor.fetchall()
+
+        for dt in data:
+            lista_dados.append(dt)
+
+        if len(lista_dados) == 0:
+            print('Não há um livro cadastrado com esse ID')
+        
+        else:
+            exclusao = f"""DELETE FROM biblioteca WHERE id = {livro_id}"""
+
+            cursor.execute(exclusao)
+            conn.commit()
+
+    except ValueError:
+        print('Digite um número inteiro para o id')
+    
+    except Exception:
+        print('Erro de transação no BD')
+
+    else:
+        print('\nLivro excluído com sucesso')
