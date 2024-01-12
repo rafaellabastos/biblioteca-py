@@ -36,7 +36,7 @@ def cadastrar():
         nome = input('Digite o nome do livro: ')
         secao = input('Digite a seção do livro: ')
         autor = input('Digite o autor do livro: ')
-        idade = int(input('Digite a idade: '))
+        idade = int(input('Digite a idade mínima: '))
 
         cadastro = f"""INSERT INTO biblioteca (NOME_LIVRO, SECAO_LIVRO, AUTOR_LIVRO, IDADE) VALUES ('{nome}', '{secao}', '{autor}', {idade})"""
 
