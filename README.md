@@ -19,3 +19,7 @@ CREATE TABLE biblioteca (
  AUTOR_LIVRO VARCHAR2(50),
  IDADE_MIN INT
 );
+
+4 - Entrar no programa com as mesmas permissões do SQL Developer
+
+5 - Executar o programa
