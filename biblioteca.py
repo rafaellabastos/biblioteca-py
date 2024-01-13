@@ -30,27 +30,30 @@ else:
 
 # Cadastrar informações do livro
 def cadastrar():
-    try:
-        print('\n-----CADASTRAR LIVRO-----')
+    cadastro = False
 
-        nome = input('Digite o nome do livro: ')
-        secao = input('Digite a seção do livro: ')
-        autor = input('Digite o autor do livro: ')
-        idade = int(input('Digite a idade mínima: '))
-
-        cadastro = f"""INSERT INTO biblioteca (NOME_LIVRO, SECAO_LIVRO, AUTOR_LIVRO, IDADE_MIN) VALUES ('{nome}', '{secao}', '{autor}', {idade})"""
-
-        cursor.execute(cadastro)
-        conn.commit()
-
-    except ValueError:
-        print('Digite um número inteiro para a idade!')
+    while not cadastro:
+        try:
+            print('\n-----CADASTRAR LIVRO-----')
     
-    except:
-        print('Erro na transação do BD')
+            nome = input('Digite o nome do livro: ')
+            secao = input('Digite a seção do livro: ')
+            autor = input('Digite o autor do livro: ')
+            idade = int(input('Digite a idade mínima: '))
     
-    else:
-        print('\nDados gravados com sucesso')
+            cadastro = f"""INSERT INTO biblioteca (NOME_LIVRO, SECAO_LIVRO, AUTOR_LIVRO, IDADE_MIN) VALUES ('{nome}', '{secao}', '{autor}', {idade})"""
+    
+            cursor.execute(cadastro)
+            conn.commit()
+    
+        except ValueError:
+            print('Digite um número inteiro para a idade!')
+        
+        except:
+            print('Erro na transação do BD')
+        
+        else:
+            print('\nDados gravados com sucesso')
 
 
 # Listar livros cadastrados
