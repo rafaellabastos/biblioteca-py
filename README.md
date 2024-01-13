@@ -4,10 +4,10 @@ Este programa realiza o CRUD de uma biblioteca: ele cadastra o nome do livro e i
 ## Passo a passo:
 1 - Colocar no terminal:
 pip install oracledb
-pip install pwinput
+<br>pip install pwinput
 
 2 - Colocar suas permissões no SQL Developer
-OBS.: também substituir no código as mesmas permissões nos campos determinados
+<br>OBS.: também substituir no código as mesmas permissões nos campos determinados
 
 3 - Criar a tabela no SQL Developer
 
