@@ -15,7 +15,7 @@ drop table biblioteca cascade constraints;
 <br>CREATE TABLE biblioteca (
 <br>&nbsp; ID NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 <br>&nbsp; NOME_LIVRO VARCHAR2(50),
-<br>&nbsp; SEÇÃO_LIVRO VARCHAR2(50),
+<br>&nbsp; SECAO_LIVRO VARCHAR2(50),
 <br>&nbsp; AUTOR_LIVRO VARCHAR2(50),
 <br>&nbsp; IDADE_MIN INT
 <br>);
