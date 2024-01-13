@@ -12,12 +12,12 @@ OBS.: também substituir no código as mesmas permissões nos campos determinado
 3 - Criar a tabela no SQL Developer
 
 drop table biblioteca cascade constraints;
-<br>CREATE TABLE biblioteca (
-<br>ID NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-<br>NOME_LIVRO VARCHAR2(50),
-<br>SEÇÃO_LIVRO VARCHAR2(50),
-<br>AUTOR_LIVRO VARCHAR2(50),
-<br>IDADE_MIN INT
+<br>&nbsp; CREATE TABLE biblioteca (
+<br>&nbsp; ID NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+<br>&nbsp; NOME_LIVRO VARCHAR2(50),
+<br>&nbsp; SEÇÃO_LIVRO VARCHAR2(50),
+<br>&nbsp; AUTOR_LIVRO VARCHAR2(50),
+<br>&nbsp; IDADE_MIN INT
 <br>);
 
 4 - Entrar no programa com as mesmas permissões do SQL Developer
