@@ -3,7 +3,7 @@ Este programa realiza o CRUD de uma biblioteca: ele cadastra o nome do livro e i
 
 ## Passo a passo:
 1 - Colocar no terminal:
-pip install oracledb
+<br>pip install oracledb
 <br>pip install pwinput
 
 2 - Colocar suas permissões no SQL Developer
@@ -12,7 +12,7 @@ pip install oracledb
 3 - Criar a tabela no SQL Developer
 
 drop table biblioteca cascade constraints;
-<br>&nbsp; CREATE TABLE biblioteca (
+<br>CREATE TABLE biblioteca (
 <br>&nbsp; ID NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 <br>&nbsp; NOME_LIVRO VARCHAR2(50),
 <br>&nbsp; SEÇÃO_LIVRO VARCHAR2(50),
